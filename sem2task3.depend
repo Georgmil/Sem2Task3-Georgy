@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1618355469 source:c:\users\georgy milyushkov\documents\programirovanie\sem2task3\main.cpp
+	"Razb.hpp"
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<graphics.h>
+	<math.h>
+
+1618353076 c:\users\georgy milyushkov\documents\programirovanie\sem2task3\razb.h
+
+1618355429 source:c:\users\georgy milyushkov\documents\programirovanie\sem2task3\razb.cpp
+	"Razb.hpp"
+
+1618355433 c:\users\georgy milyushkov\documents\programirovanie\sem2task3\razb.hpp
+	"Razb.hpp"
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<graphics.h>
+	<math.h>
+
