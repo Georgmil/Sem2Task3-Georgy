@@ -6,7 +6,7 @@
 #include <graphics.h>
 #include <math.h>
 
-// skakuni=500dinar; sablja=100;rubin=50; ozher=10; zhena=200 dinar;
+
 
 int main(){
 robbers();

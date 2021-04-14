@@ -75,30 +75,24 @@ void robbers(){
 
 
 void printfi(int i){
-
-    printf("%s: \n",band[i].Name);
+    printf("%s",band[i].Name);
     if(band[i].zhivoj==true)
-        printf("Zhivoj--Da\n");
+        printf("         Da");
     else
-        printf("Zhvioj--Net\n");
-    printf(
-            " %d skakuna (500 dinar)\n"
-            " %d sabji (100 dinar)\n"
-            " %d rubin (50 dianr)\n"
-            " %d ozherelja (10 dinar)\n"
-            " %d zheni (200 dinar)\n"
-            " %d monet (1 dinar)\n"
-            "------- bogatstvo: %d dinar",
-            band[i].skakuni,
-            band[i].sabli,
+        printf("         Net");
+    printf("           %d           %d            %d             %d               %d          %d           %d\n",band[i].skakuni, band[i].sabli,
             band[i].rubini,
             band[i].ozher,
             band[i].zheni,
             band[i].moneti,
             band[i].bogatstvo);
+
+
+
 }
 void najti(char robname[10],int kol){
-
+    printf("Ceni: skakuni=500dinar; sablja=100;rubin=50; ozher=10; zhena=200 dinar\n\n");
+    printf("Imja       Zhivoj       Skakuni       Sabli       Rubini       Ozherelija       Zheni       Moneti       Boagtstvo\n");
     for(int i=0;i<kol;i++){
         if(strcmp(robname,band[i].Name)==0){
             printf("\n");
@@ -109,12 +103,16 @@ void najti(char robname[10],int kol){
 }
 
 void printfall(int kol){
+printf("Ceni: skakuni=500dinar; sablja=100;rubin=50; ozher=10; zhena=200 dinar\n\n");
+printf("Imja       Zhivoj       Skakuni       Sabli       Rubini       Ozherelija       Zheni       Moneti       Boagtstvo\n");
     for(int i=0;i<kol;i++){
         printf("\n\n");
         printfi(i);
     }
 }
 void printfall_ac(int kol){
+printf("Ceni: skakuni=500dinar; sablja=100;rubin=50; ozher=10; zhena=200 dinar\n\n");
+printf("Imja       Zhivoj       Skakuni       Sabli       Rubini       Ozherelija       Zheni       Moneti       Boagtstvo\n");
     for(int i=0;i<kol;i++){
         if(band[i].zhivoj==true){
             printf("\n\n");
@@ -125,7 +123,7 @@ void printfall_ac(int kol){
 
 void itogo_ac(int kol){
     int summa_bog=0,summa_skak=0,summa_sab=0,summa_zhen=0,summa_ozher=0,summa_rubin=0,summa_monet=0;
-
+    printf("----------------------------------------------------------------------------------------------------------------------\n");
     for(int i=0;i<kol;i++){
 
         if(band[i].zhivoj==true){
@@ -137,24 +135,18 @@ void itogo_ac(int kol){
             summa_rubin+=band[i].rubini;
             summa_monet+=band[i].moneti;}
     }
-    printf("ITOGO:\n");
-    printf("Bogatstvo bandi: %d\n"
-           "- %d skakunov\n"
-           "- %d sablej\n"
-           "- %d zhen\n"
-           "- %d ozherelij \n"
-           "- %d rubin\n"
-           "- %d monet \n"
-           ,summa_bog
-           ,summa_skak
+    printf("ITOGO                    %d             %d          %d               %d             %d           %d           %d\n",
+            summa_skak
            ,summa_sab
-           ,summa_zhen
-           ,summa_ozher
            ,summa_rubin
-           ,summa_monet);
+           ,summa_ozher
+           ,summa_zhen
+           ,summa_monet
+           ,summa_bog);
     }
 void itogo(int kol){
     int summa_bog=0,summa_skak=0,summa_sab=0,summa_zhen=0,summa_ozher=0,summa_rubin=0,summa_monet=0;
+    printf("----------------------------------------------------------------------------------------------------------------------\n");
 
     for(int i=0;i<kol;i++){
         summa_bog+=band[i].bogatstvo;
@@ -164,28 +156,22 @@ void itogo(int kol){
         summa_ozher+=band[i].ozher;
         summa_rubin+=band[i].rubini;
         summa_monet+=band[i].moneti;}
-    printf("ITOGO:\n");
-    printf("Bogatstvo bandi: %d\n"
-           "- %d skakunov\n"
-           "- %d sablej\n"
-           "- %d zhen\n"
-           "- %d ozherelij \n"
-           "- %d rubin\n"
-           "- %d monet \n"
-           ,summa_bog
-           ,summa_skak
+     printf("ITOGO                    %d             %d          %d               %d             %d           %d           %d\n",
+            summa_skak
            ,summa_sab
-           ,summa_zhen
-           ,summa_ozher
            ,summa_rubin
-           ,summa_monet);
+           ,summa_ozher
+           ,summa_zhen
+           ,summa_monet
+           ,summa_bog);
     }
 
 void deleterob(char robname[10],int kol){
     for(int i=0;i<kol;i++){
-        if(strcmp(robname,band[i].Name)==0){
+        if(strcmp(robname,band[i].Name)==0 && band[i].zhivoj==true){
             band[i].zhivoj=false;
             break;}
+
 }
 
 }
@@ -226,6 +212,7 @@ void richest(int kol){
 
     }
     printf("The richest is:\n");
+    printf("Imja       Zhivoj       Skakuni       Sabli       Rubini       Ozherelija       Zheni       Moneti       Boagtstvo\n");
     for(int i=0;i<kol;i++){
         if(band[i].zhivoj==true){
             if(band[i].bogatstvo==band[richid].bogatstvo){
@@ -609,11 +596,10 @@ void ksabli(int kol){
     int height=650;
 
     initwindow(width,height);
-    setbkcolor(WHITE);
     cleardevice();
 
     setlinestyle(0,0,4);
-    setcolor(BLACK);
+
     outtext("Chtobi zakrit: Nazhmite mishju na luboe mesto na ekrane(ne krestik), i potom luboju klavishu!!!!");
 
     int summa=0;
@@ -630,6 +616,7 @@ void ksabli(int kol){
             prosent=(float)((band[i].sabli)*360)/(float)summa;
             last+=prosent;
             last1=ceil(last);
+            setfillstyle(SOLID_FILL,BLUE);
             pieslice(width/2,height/2,start,last1,300);
             start=last;
         }
@@ -646,11 +633,9 @@ void kskakuni(int kol){
     int height=650;
 
     initwindow(width,height);
-    setbkcolor(WHITE);
     cleardevice();
 
     setlinestyle(0,0,4);
-    setcolor(BLACK);
     outtext("Chtobi zakrit: Nazhmite mishju na luboe mesto na ekrane(ne krestik), i potom luboju klavishu!!!!");
 
     int summa=0;
@@ -667,6 +652,7 @@ void kskakuni(int kol){
             prosent=(float)((band[i].skakuni)*360)/(float)summa;
             last+=prosent;
             last1=ceil(last);
+            setfillstyle(SOLID_FILL,BLUE);
             pieslice(width/2,height/2,start,last1,300);
             start=last;
         }
@@ -684,11 +670,9 @@ void krubini(int kol){
     int height=650;
 
     initwindow(width,height);
-    setbkcolor(WHITE);
     cleardevice();
 
     setlinestyle(0,0,4);
-    setcolor(BLACK);
     outtext("Chtobi zakrit: Nazhmite mishju na luboe mesto na ekrane(ne krestik), i potom luboju klavishu!!!!");
 
     int summa=0;
@@ -705,6 +689,7 @@ void krubini(int kol){
             prosent=(float)((band[i].rubini)*360)/(float)summa;
             last+=prosent;
             last1=ceil(last);
+            setfillstyle(SOLID_FILL,BLUE);
             pieslice(width/2,height/2,start,last1,300);
             start=last;
         }
@@ -721,11 +706,9 @@ void kzheni(int kol){
     int height=650;
 
     initwindow(width,height);
-    setbkcolor(WHITE);
     cleardevice();
 
     setlinestyle(0,0,4);
-    setcolor(BLACK);
     outtext("Chtobi zakrit: Nazhmite mishju na luboe mesto na ekrane(ne krestik), i potom luboju klavishu!!!!");
 
     int summa=0;
@@ -742,6 +725,7 @@ void kzheni(int kol){
             prosent=(float)((band[i].zheni)*360)/(float)summa;
             last+=prosent;
             last1=ceil(last);
+            setfillstyle(SOLID_FILL,BLUE);
             pieslice(width/2,height/2,start,last1,300);
             start=last;
         }
@@ -758,11 +742,9 @@ void kmoneti(int kol){
     int height=650;
 
     initwindow(width,height);
-    setbkcolor(WHITE);
     cleardevice();
 
     setlinestyle(0,0,4);
-    setcolor(BLACK);
     outtext("Chtobi zakrit: Nazhmite mishju na luboe mesto na ekrane(ne krestik), i potom luboju klavishu!!!!");
 
     int summa=0;
@@ -779,6 +761,7 @@ void kmoneti(int kol){
             prosent=(float)((band[i].moneti)*360)/(float)summa;
             last+=prosent;
             last1=ceil(last);
+            setfillstyle(SOLID_FILL,BLUE);
             pieslice(width/2,height/2,start,last1,300);
             start=last;
         }
@@ -795,11 +778,9 @@ void kozher(int kol){
     int height=650;
 
     initwindow(width,height);
-    setbkcolor(WHITE);
     cleardevice();
 
     setlinestyle(0,0,4);
-    setcolor(BLACK);
     outtext("Chtobi zakrit: Nazhmite mishju na luboe mesto na ekrane(ne krestik), i potom luboju klavishu!!!!");
 
     int summa=0;
@@ -816,6 +797,7 @@ void kozher(int kol){
             prosent=(float)((band[i].ozher)*360)/(float)summa;
             last+=prosent;
             last1=ceil(last);
+            setfillstyle(SOLID_FILL,BLUE);
             pieslice(width/2,height/2,start,last1,300);
             start=last;
         }
@@ -832,11 +814,9 @@ void kbog(int kol){
     int height=650;
 
     initwindow(width,height);
-    setbkcolor(WHITE);
     cleardevice();
 
     setlinestyle(0,0,4);
-    setcolor(BLACK);
     outtext("Chtobi zakrit: Nazhmite mishju na luboe mesto na ekrane(ne krestik), i potom luboju klavishu!!!!");
 
     int summa=0;
@@ -853,6 +833,7 @@ void kbog(int kol){
             prosent=(float)((band[i].bogatstvo)*360)/(float)summa;
             last+=prosent;
             last1=ceil(last);
+            setfillstyle(SOLID_FILL,BLUE);
             pieslice(width/2,height/2,start,last1,300);
             start=last;
         }
