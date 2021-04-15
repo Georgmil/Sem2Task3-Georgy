@@ -50,7 +50,7 @@ int n=1;
             printf("All robbers:\n");
             printfall(kol);
             printf("\n\n");
-            itogo(kol);break;
+            itogo_ac(kol);break;
         case 3:
             printf("All(actual) robbers:\n");
             printfall_ac(kol);
